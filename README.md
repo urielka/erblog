@@ -12,6 +12,11 @@ I tested it on Erlang R14B04,and the rest of the requirments are handled by reba
 
 First run
 --------------------------------------
+Erblog uses yaws so we need to fetch it using rebar:
+```bash
+./rebar get-deps
+```
+
 Since erblog uses mnesia we first need to create a schema,run:
 ```bash
 priv/start_dev db
@@ -25,6 +30,7 @@ just run:
 ```bash
 priv/start_dev
 ```
+
 The blog should be running on http://localhost:9090
 
 Adding a blog post
@@ -34,6 +40,7 @@ In the erlang shell type:
 rr("include/*").
 erblog_models:add_post(3,"Your title","Your content").
 ```
+
 Cleaning the db
 --------------------------------------
 To restore the db to its initial state run:
