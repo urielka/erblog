@@ -1,0 +1,7 @@
+{application, erblog,
+  [{vsn, "1.0.0"},
+  {modules, [erblog,erblog_controller,erblog_router,
+                erblog_views,erblog_models,erblog_main]},
+  {registered, []},
+  {mod, {erblog, []}}
+]}.

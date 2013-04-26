@@ -1,0 +1,31 @@
+#!/bin/bash
+
+ERSTART="erl -pa ebin -pa deps/*/ebin -mnesia dir mnesia "
+SPATH=`dirname $0`
+cd $SPATH/..
+./rebar compile
+
+start() {
+  $ERSTART -s erblog_main start
+}
+
+clean_db() {
+  rm mnesia/*
+  db
+}
+
+db() {
+  $ERSTART -s erblog_main create_mnesia
+}
+### main logic ###
+case "$1" in
+  clean_db)
+    clean_db
+    ;;
+  db)
+    db
+    ;;
+  *)
+        start
+esac
+exit 0

@@ -1,0 +1,2 @@
+-record(erblog_post,{id,title,content,comments = []}).
+-record(erblog_comment,{author,content}).
